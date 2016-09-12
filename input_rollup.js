@@ -2,14 +2,14 @@
  This function collapses/hides a group of form fields concactenating the values into one line
  and adds a button to unhide it. This is handy for things like addresses and
  phone fields to put more information into horizontal view vs long list of small pieces
- of info. elementIdList is the list of dom ids to rollup, top_element is the first element
- in the list of fields that is used to insert a row with the concatenated
- field values of the group. label is the name of the new concatenated field.
- phone is a boolean when true is used for phone numbers to concatenate the type of
- phone number (home,work etc) to the list.
- labelcallback if supplied will be passed a label for each input element
- and the function should parse the label to extract relevent info
- e.g. Home Phone: xxx-xxx-xxxx  The function should split on space and return first field
+ of info.
+ * @param {string} elementIdList - is the list of dom ids to rollup
+ * @param {string} labelForRollup - is a label to describe new concated field
+ * @param {function} labelCallback(label) - optional: if supplied,
+ * when invoked will be passed the label for each input element
+ * and the supplied function should parse the label to extract relevent info
+ * e.g. Home Phone: xxx-xxx-xxxx  The function should split on space and return
+ * first field
  */
 
 function inputRollup(elementIdList, labelForRollup, labelCallback) {
