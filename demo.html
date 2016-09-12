@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="input_rollup.js"></script>
+    <script>
+        function activateDemo (el) {
+            function parsePhoneLabel(labStr) {
+                return labStr.split(" ")[0];
+            }
+            var contactElems = ["id_salutation", "id_contact_first_name", "id_contact_last_name", "id_contact_mi", "id_contact_suffix"];
+            var contactAddrElems = ["id_mail_addrline1", "id_mail_addrline2", "id_mail_suite", "id_mail_city", "id_mail_state", "id_mail_zip"];
+            var corpAddrElems = ["id_corporate_addrline1", "id_corporate_addrline2", "id_corporate_suite", "id_corporate_city", "id_corporate_state", "id_corporate_zip"];
+            var corpContactElems= ["id_corporate_salutation", "id_corporate_firstname", "id_corporate_lastname"];
+            var emergContactElems = ["id_emergency_name1", "id_emergency_phone1", "id_emergency_name2", "id_emergency_phone2"];
+            var phoneElems = ["id_work_phone", "id_home_phone", "id_fax_phone", "id_other_phone"];
+            inputRollup(contactAddrElems, "Contact Address");
+            inputRollup(contactElems, "Contact Name");
+            inputRollup(corpAddrElems, "Corporate Address");
+            inputRollup(corpContactElems, "Corp Contact Name");
+            inputRollup(emergContactElems, "Emergency Contact Info");
+            inputRollup(phoneElems, "Contact Phone Numbers", parsePhoneLabel);
+            el.setAttribute("style","display:none");
+        }
+    </script>
+</head>
+<body>
+<div>
+    <span><button onclick="activateDemo(this)">Start Demo</button></span>
+</div>
+<table>
+    <tbody>
+
+    <tr>
+        <th><label for="id_company_name">Company name:</label></th>
+        <td><input id="id_company_name" type="text" name="company_name" value="Seaside Musical Instruments"
+                   maxlength="200" style="width: 40em;"></td>
+    </tr>
+    
+    <tr>
+        <th><label for="id_mail_addrline1">Mail addrline1:</label></th>
+        <td><input id="id_mail_addrline1" type="text" name="mail_addrline1" value="533 Highway 101" maxlength="100"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_mail_addrline2">Mail addrline2:</label></th>
+        <td><input id="id_mail_addrline2" type="text" name="mail_addrline2" maxlength="100" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_mail_suite">Mail suite:</label></th>
+        <td><input id="id_mail_suite" type="text" name="mail_suite" maxlength="100" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_mail_city">Mail city:</label></th>
+        <td><input id="id_mail_city" type="text" name="mail_city" value="Solana Beach" maxlength="50"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_mail_state">Mail state:</label></th>
+        <td><input id="id_mail_state" type="text" name="mail_state" value="CA" maxlength="2" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_mail_zip">Mail zip:</label></th>
+        <td><input id="id_mail_zip" type="text" name="mail_zip" value="92075" maxlength="20" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_salutation">Salutation:</label></th>
+        <td><input id="id_salutation" type="text" name="salutation" value="Mr." maxlength="20" style="width: 40em;">
+        </td>
+    </tr>
+    <tr>
+        <th><label for="id_contact_first_name">Contact first name:</label></th>
+        <td><input id="id_contact_first_name" type="text" name="contact_first_name" value="Fred" maxlength="100"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_contact_last_name">Contact last name:</label></th>
+        <td><input id="id_contact_last_name" type="text" name="contact_last_name" value="Hara" maxlength="100"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_contact_mi">Contact mi:</label></th>
+        <td><input id="id_contact_mi" type="text" name="contact_mi" maxlength="2" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_contact_suffix">Contact suffix:</label></th>
+        <td><input id="id_contact_suffix" type="text" name="contact_suffix" maxlength="100" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_contact_title">Contact title:</label></th>
+        <td><input id="id_contact_title" type="text" name="contact_title" maxlength="200" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_email">Email:</label></th>
+        <td><input id="id_email" type="text" name="email" value="Seasidemusic@ayohel.com" maxlength="100"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_additional_contact">Additional contact:</label></th>
+        <td><input id="id_additional_contact" type="text" name="additional_contact" maxlength="200"
+                   style="width: 40em;"></td>
+    </tr>
+
+    <tr>
+        <th><label for="id_work_phone">Work phone:</label></th>
+        <td><input id="id_work_phone" type="text" name="work_phone" value="714 444 3221" maxlength="60"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_home_phone">Home phone:</label></th>
+        <td><input id="id_home_phone" type="text" name="home_phone" maxlength="60" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_fax_phone">Fax phone:</label></th>
+        <td><input id="id_fax_phone" type="text" name="fax_phone" maxlength="60" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_other_phone">Cell Phone:</label></th>
+        <td><input id="id_other_phone" type="text" name="other_phone" value="619 333 9999" maxlength="60"
+                   style="width: 40em;"></td>
+    </tr>
+
+    <tr>
+        <th><label for="id_property_owner">Property owner:</label></th>
+        <td><input id="id_property_owner" type="text" name="property_owner" maxlength="160" style="width: 40em;"></td>
+    </tr>
+
+    <tr>
+        <th><label for="id_notes">Notes:</label></th>
+        <td><textarea id="id_notes" rows="2" cols="80" name="notes">sdf</textarea></td>
+    </tr>
+    <tr>
+        <th><label for="id_emergency_name1">Emergency name1:</label></th>
+        <td><input id="id_emergency_name1" type="text" name="emergency_name1" maxlength="100" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_emergency_phone1">Emergency phone1:</label></th>
+        <td><input id="id_emergency_phone1" type="text" name="emergency_phone1" maxlength="60" style="width: 40em;">
+        </td>
+    </tr>
+    <tr>
+        <th><label for="id_emergency_name2">Emergency name2:</label></th>
+        <td><input id="id_emergency_name2" type="text" name="emergency_name2" maxlength="100" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_emergency_phone2">Emergency phone2:</label></th>
+        <td><input id="id_emergency_phone2" type="text" name="emergency_phone2" maxlength="60" style="width: 40em;">
+        </td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_addrline1">Corporate addrline1:</label></th>
+        <td><input id="id_corporate_addrline1" type="text" name="corporate_addrline1" value="100 Main Street"
+                   maxlength="200" style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_addrline2">Corporate addrline2:</label></th>
+        <td><input id="id_corporate_addrline2" type="text" name="corporate_addrline2" maxlength="200"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_suite">Corporate suite:</label></th>
+        <td><input id="id_corporate_suite" type="text" name="corporate_suite" value="500" maxlength="200"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_city">Corporate city:</label></th>
+        <td><input id="id_corporate_city" type="text" name="corporate_city" value="Enterprise" maxlength="120"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_state">Corporate state:</label></th>
+        <td><input id="id_corporate_state" type="text" name="corporate_state" value="CO" maxlength="2"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_zip">Corporate zip:</label></th>
+        <td><input id="id_corporate_zip" type="text" name="corporate_zip" value="82111" maxlength="40"
+                   style="width: 40em;"></td>
+    </tr>
+
+    <tr>
+        <th><label for="id_corporate_salutation">Corporate salutation:</label></th>
+        <td><input id="id_corporate_salutation" type="text" name="corporate_salutation" value="Master" maxlength="8"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_firstname">Corporate firstname:</label></th>
+        <td><input id="id_corporate_firstname" type="text" name="corporate_firstname" value="Fred" maxlength="30"
+                   style="width: 40em;"></td>
+    </tr>
+    <tr>
+        <th><label for="id_corporate_lastname">Corporate lastname:</label></th>
+        <td><input id="id_corporate_lastname" type="text" name="corporate_lastname" value="Hiller" maxlength="30"
+                   style="width: 40em;"></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
